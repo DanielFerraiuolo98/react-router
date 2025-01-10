@@ -42,7 +42,7 @@ function Main() {
     function deletePost(id) {
         axios.delete(apiUrl + "/" + id).then((res) => {
             console.log(res.data);
-            setBlog(blog.filter((el) => el.id !== id));
+            getData(search);
         });
     }
 
@@ -58,7 +58,7 @@ function Main() {
             .get(apiUrl + "/examples")
             .then((res) => {
                 console.log(res.data);
-                setPosts(res.data.data);
+                getPosts(res.data.data);
             })
             .catch((error) => {
                 console.error('Errore nel recupero dei post:', error);
